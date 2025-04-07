@@ -1,9 +1,21 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useEffect } from "react";
+import LandingPage from "./pages/LandingPage";
 import "./App.css";
+import { useAppContext } from "./context/appContext";
 
 function App() {
-  return <div className="App"></div>;
+  const { state, dispatch } = useAppContext();
+  useEffect(() => {
+    dispatch({
+      type: "SET_USERNAME",
+      username: "UtkarshChahal",
+    });
+  }, []);
+  return (
+    <div className="App">
+      <LandingPage />
+    </div>
+  );
 }
 
 export default App;
